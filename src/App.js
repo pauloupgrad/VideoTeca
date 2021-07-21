@@ -1,9 +1,17 @@
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
 
-function App() {
+
+function App() { 
+
   return (
-    <div className="App">
-      <h1>VídeoTeca</h1>
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/" component={Home}/>
+        </Switch>
+      </Router>      
     </div>
   );
 }

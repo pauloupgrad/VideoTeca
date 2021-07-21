@@ -10,3 +10,10 @@ Acessar o diretório do projeto
 
 Rodar o projeto React
 ### npm start || yarn start
+
+Grenciar rotas
+### npm react-router-dom
+
+Css em components
+
+### npm install --save styled-components
