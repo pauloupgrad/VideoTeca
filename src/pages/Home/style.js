@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Table = styled.table`
      width: 100%;
+     margin: 20px 0px;
+     text-align: left;
      th{
        background-color: #069;
        color: #fff;
@@ -57,12 +59,37 @@ export const Container = styled.div`
     padding: 20px;
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.4);    
+    box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.4); 
+    text-align: center;   
 `;
 
 export const Title = styled.h1`
-    font-size: 1.6rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem; 
     text-transform: uppercase;
-    color: #069;
+    color: #069;    
+`;
+
+export const ContainerTitle = styled.div`
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+`;
+
+export const ButtonListar = styled.a`
+    background-color: #00b700;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all ease .4s;
+    :hover{
+        background-color: transparent;
+        border: 1px solid #00b700;
+        color: #00b700;
+    }
 `;

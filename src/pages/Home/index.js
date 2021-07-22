@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Title, Table, BtnEdit, BtnDel } from './style';
+import { Container, ContainerTitle, Title, Table, ButtonListar } from './style';
 
 export const Home = () => {
 
@@ -9,7 +9,7 @@ export const Home = () => {
       fetch("http://localhost/api_galeria/index.php")
       .then((resp) => resp.json())
       .then(({records}) => (
-        setData(records)
+        setData(records)        
       ));
     }
   
@@ -19,14 +19,17 @@ export const Home = () => {
   
     return (
       <Container>
-        <Title>Listar Vídeos usando page home</Title>
+        <ContainerTitle>
+          <Title>Listar Vídeos</Title>
+          <ButtonListar href="/cadastrar">Cadastrar vídeo</ButtonListar>
+        </ContainerTitle>
         <Table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>TITULO</th>
                     <th>CANAL</th>
-                    <th>DESCRIÇÃO</th>
+                    {/* <th>DESCRIÇÃO</th> */}
                     <th>EMBED</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -37,7 +40,7 @@ export const Home = () => {
                         <td>{video.id}</td>
                         <td>{video.titulo}</td>
                         <td>{video.canal}</td>
-                        <td>{video.descricao}</td>
+                        {/* <td>{video.descricao}</td> */}
                         <td>{video.embed}</td>
                         <td>
                             <a className="vis" href="#"><i class="fas fa-eye"></i></a>
@@ -48,6 +51,7 @@ export const Home = () => {
                 ))}
             </tbody>
         </Table>
+        <small>2021 &copy;VídeoTeca - Todos os direitos reservados</small>
       </Container>
     );
   }

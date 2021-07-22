@@ -17,3 +17,8 @@ Grenciar rotas
 Css em components
 
 ### npm install --save styled-components
+
+## Como rodar o projeto clonado 
+
+Instalar todas as dependencias pelo package.json
+### npm install

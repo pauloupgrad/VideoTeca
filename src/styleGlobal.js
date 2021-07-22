@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-family: 'Lato', sans-serif;
-    }    
+    } 
+    
+    input:focus, textarea:focus {
+        outline: none;
+    }
 `
 export default GlobalStyle;
