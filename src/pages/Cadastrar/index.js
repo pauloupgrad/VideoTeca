@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { 
-  Container, 
-  ContainerTitle, 
-  Title, 
-  Form, 
+import { Link } from 'react-router-dom';
+import {
+  Container,
+  ContainerTitle,
+  Title,
+  Form,
   InputForm, 
-  ButtonForm, 
-  ButtonListar,
+  ButtonForm,
+  ButtonCad,
   AlertSuccess,
-  AlertDanger 
+  AlertDanger
 } from './style';
 
 export const Cadastrar = () => {
 
   const [video, setVideo] = useState({
     titulo: '',
-    canal: '',
-    descricao: '',
+    canal: '',   
     embed: ''
   });
 
@@ -29,9 +29,6 @@ export const Cadastrar = () => {
 
   const cadVideo = async e => {
     e.preventDefault();
-    /* let t = video.titulo.split('?v=');
-    t = t[1]; */
-    //console.log(video.titulo);
     await fetch("http://localhost/api_galeria/cadastrar.php", {
       method: 'POST',
       headers: {
@@ -57,23 +54,24 @@ export const Cadastrar = () => {
           type: 'erro',
           mensagem: 'Vídeo não foi cadastrado com sucesso, tente mais tarde!'
         });
-      });
+      });     
   }
 
   return (
     <Container>
       <ContainerTitle>
         <Title>Cadastrar Vídeos</Title>
-        <ButtonListar href="/">Listar</ButtonListar>
+        <Link to="/">
+        <ButtonCad>Listar</ButtonCad>
+        </Link>  
+        
       </ContainerTitle>
       {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
       {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
       <Form onSubmit={cadVideo}>
         <InputForm type="text" name="titulo" placeholder="Digite o titulo do vídeo" onChange={valorInput} />
 
-        <InputForm type="text" name="canal" placeholder="Digite o canal do vídeo" onChange={valorInput} />
-
-        <InputForm type="text" name="descricao" placeholder="Digite o descrição do vídeo" onChange={valorInput} />
+        <InputForm type="text" name="canal" placeholder="Digite o canal do vídeo" onChange={valorInput} />        
 
         <InputForm type="text" name="embed" placeholder="Digite url do vídeo" onChange={valorInput} />
 
